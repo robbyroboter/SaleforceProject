@@ -570,5 +570,9 @@
         <members>Case</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>AccountController</members>
+        <name>ApexClass</name>
+    </types>
     <version>67.0</version>
 </Package>

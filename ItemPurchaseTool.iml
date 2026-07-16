@@ -41,16 +41,12 @@
       <SelectedComponentNamesPersistedState type="LIGHTNING_BUNDLE" selectAll="true" />
       <SelectedComponentNamesPersistedState type="LIGHTNING_WEB_COMPONENT" selectAll="true" />
       <SelectedComponentNamesPersistedState type="APEX_COMPONENT" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="CUSTOM_OBJECT" selectAll="true" />
       <SelectedComponentNamesPersistedState type="CUSTOM_TAB" selectAll="true" />
       <SelectedComponentNamesPersistedState type="CUSTOM_APPLICATION" selectAll="true" />
       <SelectedComponentNamesPersistedState type="WORKFLOW" selectAll="true" />
       <SelectedComponentNamesPersistedState type="APEX_PAGE" selectAll="true" />
       <SelectedComponentNamesPersistedState type="CUSTOM_LABELS" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="LAYOUT">
-        <mySelectedNames>
-          <option value="Item__c-Item Layout" />
-        </mySelectedNames>
-      </SelectedComponentNamesPersistedState>
     </selectedComponentNames>
     <componentTreeState>
       <RetrieveComponentTreeNodePersistedState componentType="ApexClass" isChecked="true" isMajor="true" />
@@ -1161,7 +1157,7 @@
         </entry>
         <entry key="0Rbfj000003PvnlCAC">
           <value>
-            <FileRetrievalHistory lastSynchronizationDate="1784219159000" />
+            <FileRetrievalHistory lastSynchronizationDate="1784223639000" />
           </value>
         </entry>
         <entry key="301fj00001Qk1jIAAR">

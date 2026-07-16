@@ -3,9 +3,28 @@
             title="Item Purchase Tool"
             icon-name="standard:product">
 
-        <div class="slds-p-around_medium">
-            Hello Salesforce
-        </div>
+        <template if:true={account}>
+            <div class="slds-p-around_medium">
+                <p>
+                    <b>Account Name:</b>
+                    {account.Name}
+                </p>
+                <p>
+                    <b>Account Number:</b>
+                    {account.AccountNumber}
+                </p>
+                <p>
+                    <b>Industry:</b>
+                    {account.Industry}
+                </p>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <p class="slds-text-color_error">
+                Error loading account
+            </p>
+        </template>
 
     </lightning-card>
 </template>
