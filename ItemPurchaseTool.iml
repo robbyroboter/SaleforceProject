@@ -29,29 +29,28 @@
       </library>
     </orderEntry>
   </component>
-  <component name="RetrieveModel">
+  <component name="RetrieveModel" standardCheckboxSelected="false">
     <selectedComponentNames>
-      <SelectedComponentNamesPersistedState type="LIGHTNING_BUNDLE" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="APEX_TRIGGER" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="CUSTOM_APPLICATION" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="NETWORK" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="WORKFLOW" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="CUSTOM_TAB" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="EXTERNAL_DATA_SOURCE" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="APEX_CLASS" selectAll="true" />
       <SelectedComponentNamesPersistedState type="FLOW" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="LIGHTNING_WEB_COMPONENT" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="APEX_TRIGGER" selectAll="true" />
       <SelectedComponentNamesPersistedState type="STATIC_RESOURCE" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="NETWORK" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="EXTERNAL_DATA_SOURCE" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="INSTALLED_PACKAGE" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="APEX_CLASS" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="LIGHTNING_BUNDLE" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="LIGHTNING_WEB_COMPONENT" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="APEX_COMPONENT" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="CUSTOM_TAB" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="CUSTOM_APPLICATION" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="WORKFLOW" selectAll="true" />
+      <SelectedComponentNamesPersistedState type="APEX_PAGE" selectAll="true" />
       <SelectedComponentNamesPersistedState type="CUSTOM_LABELS" selectAll="true" />
       <SelectedComponentNamesPersistedState type="LAYOUT">
         <mySelectedNames>
           <option value="Item__c-Item Layout" />
         </mySelectedNames>
       </SelectedComponentNamesPersistedState>
-      <SelectedComponentNamesPersistedState type="INSTALLED_PACKAGE" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="APEX_PAGE" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="APEX_COMPONENT" selectAll="true" />
-      <SelectedComponentNamesPersistedState type="CUSTOM_OBJECT" selectAll="true" />
     </selectedComponentNames>
     <componentTreeState>
       <RetrieveComponentTreeNodePersistedState componentType="ApexClass" isChecked="true" isMajor="true" />
@@ -970,6 +969,11 @@
             <FileRetrievalHistory lastSynchronizationDate="1784135763000" />
           </value>
         </entry>
+        <entry key="01pfj00000EnpxNAAR">
+          <value>
+            <FileRetrievalHistory lastSynchronizationDate="1784201975000" />
+          </value>
+        </entry>
         <entry key="01rfj00000pQypdAAC">
           <value>
             <FileRetrievalHistory lastSynchronizationDate="1783639670000" />
@@ -1153,6 +1157,11 @@
         <entry key="0A3fj000004ihesCAA">
           <value>
             <FileRetrievalHistory lastSynchronizationDate="1783639671000" />
+          </value>
+        </entry>
+        <entry key="0Rbfj000003PvnlCAC">
+          <value>
+            <FileRetrievalHistory lastSynchronizationDate="1784219159000" />
           </value>
         </entry>
         <entry key="301fj00001Qk1jIAAR">
