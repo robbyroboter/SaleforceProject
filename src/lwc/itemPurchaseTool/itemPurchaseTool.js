@@ -1,10 +1,12 @@
 import { LightningElement, api, wire } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 import getAccountInfo from '@salesforce/apex/AccountController.getAccountInfo';
 import getItems from '@salesforce/apex/ItemController.getItems';
+import checkout from '@salesforce/apex/CheckoutController.checkout';
 
-export default class ItemPurchaseTool extends LightningElement {
+export default class ItemPurchaseTool extends NavigationMixin(LightningElement) {
 
     @api recordId;
 
@@ -171,5 +173,50 @@ export default class ItemPurchaseTool extends LightningElement {
         this.isCartOpen = false;
     }
 
+    async handleCheckout() {
 
+        const cartItems = this.cart.map(item => ({
+            itemId: item.Id,
+            amount: item.amount
+        }));
+
+        try {
+
+            const purchaseId = await checkout({
+                accountId: this.recordId,
+                cartItems: cartItems
+            });
+
+            this.showToast(
+                'Success',
+                'Purchase created',
+                'success'
+            );
+
+            this.cart = [];
+            this.isCartOpen = false;
+
+            this.navigateToPurchase(purchaseId);
+
+        } catch(error) {
+
+            this.showToast(
+                'Error',
+                error.body.message,
+                'error'
+            );
+        }
+    }
+
+    navigateToPurchase(purchaseId) {
+
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: purchaseId,
+                objectApiName: 'Purchase__c',
+                actionName: 'view'
+            }
+        });
+    }
 }
