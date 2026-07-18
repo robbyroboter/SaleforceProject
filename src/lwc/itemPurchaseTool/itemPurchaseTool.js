@@ -5,6 +5,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getAccountInfo from '@salesforce/apex/AccountController.getAccountInfo';
 import getItems from '@salesforce/apex/ItemController.getItems';
 import checkout from '@salesforce/apex/CheckoutController.checkout';
+import isCurrentUserManager from '@salesforce/apex/UserController.isCurrentUserManager';
 
 export default class ItemPurchaseTool extends NavigationMixin(LightningElement) {
 
@@ -19,6 +20,8 @@ export default class ItemPurchaseTool extends NavigationMixin(LightningElement) 
 
     cart = [];
     isCartOpen = false;
+    isManager = false;
+    isCreateModalOpen = false;
 
     selectedFamily = '';
     selectedType = '';
@@ -54,6 +57,7 @@ export default class ItemPurchaseTool extends NavigationMixin(LightningElement) 
 
     connectedCallback() {
         this.loadItems();
+        this.checkManager();
     }
 
     loadItems() {
@@ -218,5 +222,45 @@ export default class ItemPurchaseTool extends NavigationMixin(LightningElement) 
                 actionName: 'view'
             }
         });
+    }
+
+    checkManager() {
+
+        isCurrentUserManager()
+            .then(result => {
+                this.isManager = result;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+    openCreateItemModal() {
+        this.isCreateModalOpen = true;
+    }
+
+    closeCreateItemModal() {
+        this.isCreateModalOpen = false;
+    }
+
+    handleCreateError(event) {
+        console.error(
+            'CREATE ITEM ERROR:',
+            JSON.stringify(event.detail)
+        );
+    }
+
+    handleCreateSuccess(event) {
+        console.log(
+            'CREATED:',
+            event.detail.id
+        );
+        this.showToast(
+            'Success',
+            'Item created',
+            'success'
+        );
+        this.isCreateModalOpen = false;
+        this.loadItems();
     }
 }

@@ -9,6 +9,15 @@
                 <h2 class="slds-text-heading_medium">
                     Account Information
                 </h2>
+                <template if:true={isManager}>
+                    <div class="slds-m-bottom_medium">
+                        <lightning-button
+                                variant="brand"
+                                label="Create Item"
+                                onclick={openCreateItemModal}>
+                        </lightning-button>
+                    </div>
+                </template>
                 <p>
                     <strong>Name:</strong>
                     {account.Name}
@@ -165,15 +174,12 @@
         <template if:true={isCartOpen}>
             <section class="slds-modal slds-fade-in-open">
                 <div class="slds-modal__container">
-
                     <header class="slds-modal__header">
                         <h2 class="slds-text-heading_medium">
                             Cart ({cartCount})
                         </h2>
                     </header>
-
                     <div class="slds-modal__content slds-p-around_medium">
-
                         <template if:true={cart.length}>
                             <table class="slds-table slds-table_cell-buffer">
                                 <thead>
@@ -194,24 +200,19 @@
                                 </template>
                                 </tbody>
                             </table>
-
                             <div class="slds-m-top_medium">
                                 <b>Total:</b> {cartTotal}
                             </div>
                         </template>
-
                         <template if:false={cart.length}>
                             Cart is empty
                         </template>
-
                     </div>
-
                     <footer class="slds-modal__footer">
                         <lightning-button
                                 label="Close"
                                 onclick={closeCart}>
                         </lightning-button>
-
                         <lightning-button
                                 class="slds-m-left_small"
                                 variant="brand"
@@ -219,10 +220,46 @@
                                 onclick={handleCheckout}>
                         </lightning-button>
                     </footer>
-
                 </div>
             </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
 
+        <template if:true={isCreateModalOpen}>
+            <section class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 class="slds-text-heading_medium">
+                            Create Item
+                        </h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning-record-edit-form object-api-name="Item__c" onsuccess={handleCreateSuccess} onerror={handleCreateError}>
+
+                            <lightning-input-field field-name="Name"></lightning-input-field>
+                            <lightning-input-field field-name="Description__c"></lightning-input-field>
+                            <lightning-input-field field-name="Family__c"></lightning-input-field>
+                            <lightning-input-field field-name="Type__c"></lightning-input-field>
+                            <lightning-input-field field-name="Price__c"></lightning-input-field>
+                            <lightning-input-field field-name="AvailableQuantity__c"></lightning-input-field>
+
+                            <div class="slds-m-top_medium">
+                                <lightning-button
+                                        label="Cancel"
+                                        onclick={closeCreateItemModal}>
+                                </lightning-button>
+
+                                <lightning-button
+                                        class="slds-m-left_small"
+                                        variant="brand"
+                                        type="submit"
+                                        label="Save">
+                                </lightning-button>
+                            </div>
+                        </lightning-record-edit-form>
+                    </div>
+                </div>
+            </section>
             <div class="slds-backdrop slds-backdrop_open"></div>
         </template>
     </lightning-card>
