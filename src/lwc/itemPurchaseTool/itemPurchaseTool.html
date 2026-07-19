@@ -84,7 +84,9 @@
                                 title={item.Name}>
                             <div class="slds-p-around_small item-card">
                                 <template if:true={item.Image__c}>
-                                    <img src={item.Image__c} class="item-image" alt={item.Name}/>
+                                    <div class="image-container">
+                                        <img src={item.Image__c} class="item-image" alt={item.Name}/>
+                                    </div>
                                 </template>
                                 <p>
                                     <strong>Family:</strong>

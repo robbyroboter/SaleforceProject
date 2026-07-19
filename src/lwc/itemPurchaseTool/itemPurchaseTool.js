@@ -6,6 +6,7 @@ import getAccountInfo from '@salesforce/apex/AccountController.getAccountInfo';
 import getItems from '@salesforce/apex/ItemController.getItems';
 import checkout from '@salesforce/apex/CheckoutController.checkout';
 import isCurrentUserManager from '@salesforce/apex/UserController.isCurrentUserManager';
+import updateItemImage from '@salesforce/apex/ItemImageController.updateItemImage';
 
 export default class ItemPurchaseTool extends NavigationMixin(LightningElement) {
 
@@ -250,17 +251,31 @@ export default class ItemPurchaseTool extends NavigationMixin(LightningElement) 
         );
     }
 
-    handleCreateSuccess(event) {
-        console.log(
-            'CREATED:',
-            event.detail.id
-        );
-        this.showToast(
-            'Success',
-            'Item created',
-            'success'
-        );
+    async handleCreateSuccess(event) {
+
+        const itemId = event.detail.id;
+        try {
+            await updateItemImage({
+                itemId: itemId
+            });
+
+            this.showToast(
+                'Success',
+                'Item created with image',
+                'success'
+            );
+
+        } catch(error) {
+            console.error(error);
+            this.showToast(
+                'Warning',
+                'Item created but image was not loaded',
+                'warning'
+            );
+        }
+
         this.isCreateModalOpen = false;
+        await new Promise(resolve => setTimeout(resolve, 1000));
         this.loadItems();
     }
 }
